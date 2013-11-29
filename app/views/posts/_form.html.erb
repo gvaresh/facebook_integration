@@ -1,0 +1,60 @@
+<%= form_for @post, :html => { :multipart => true } do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    Image <%= f.file_field :attachment %>
+  </div>
+  <div class="field">
+    <%= f.label :rollno %><br />
+    <%= f.text_field :rollno %>
+  </div>
+  <div class="field">
+    <%= f.label :fathername %><br />
+    <%= f.text_field :fathername %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br />
+    <%= f.date_select :dob %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <tr><td><%= f.radio_button :gender, 'Male' %> Male</td><td>
+        <td> ------------</td>
+    <%= f.radio_button :gender, 'Female' %>female</td></tr>
+  </div>
+  
+    <div class="field">
+    <%= f.label :qulification %><br />
+    <%= f.select :qualification, options_for_select([["MCA", "mca"], ["MSC", "msc"],["Bsc","bsc"]]) %>
+
+  </div>
+  
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
