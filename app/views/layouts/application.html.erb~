@@ -56,6 +56,28 @@
                <li><%= link_to "Index", "/posts/"  %></li>
               
             </ul>
+            <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '679683025399812',                        // App ID from the app dashboard
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -63,12 +85,12 @@
 <br><br>
     <div class="container">
         <div class="row">
-      
+          <div class="span1"> tab</div>
           <div class="span9">
            
             <%= yield %>
           </div>
-          <div class="span">
+          <div class="span2">
             <div class="well sidebar-nav">
               <h3>User Profile</h3>
               <ul class="nav nav-list">
